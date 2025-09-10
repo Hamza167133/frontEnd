@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quote Generator with Background Change</title>
+	<style>
+		body {
+			background-color: #FFADAD;
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-family: Arial, sans-serif;
+			transition: background-color 0.5s;
+		}
+		#card {
+			text-align: center;
+			padding: 30px 50px;
+			border-radius: 15px;
+			box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+			background-color: white;
+			transition: background-color 0.5s;
+		}
+		h1 {
+			font-size: 2.5rem;
+			margin-bottom: 20px;
+		}
+		p {
+			font-size: 1.3rem;
+			margin-bottom: 20px;
+		}
+		button {
+			padding: 10px 20px;
+			border: none;
+			border-radius: 10px;
+			background-color: #444;
+			color: white;
+			font-size: 1rem;
+			cursor: pointer;
+		}
+		button:hover {
+			background-color: #222;
+		}
+	</style>
+</head>
+<body>
+	<div id="card">
+		<h1>Quote Generator</h1>
+		<p id="quote">The best way to predict the future is to create it.</p>
+		<button id="btn">New Quote</button>
+	</div>
+
+	<script>
+		// Array of quotes
+		const quotes = [
+			"The best way to predict the future is to create it.",
+			"Believe you can and you're halfway there.",
+			"Do what you can with what you have, wherever you are.",
+			"Success is not in what you have, but who you are.",
+			"Dream big and dare to fail.",
+			"Life is 10% what happens to us and 90% how we react to it.",
+			"Keep going. Be all in.",
+			"Small steps in the right direction can turn out to be the biggest step of your life."
+		];
+
+		// Array of background colors
+		const colors = ["#FFADAD", "#FFD6A5", "#FDFFB6", "#CAFFBF", "#9BF6FF", "#A0C4FF", "#BDB2FF", "#FFC6FF"];
+
+		const quoteText = document.getElementById("quote");
+		const button = document.getElementById("btn");
+		const body = document.body;
+
+		button.addEventListener("click", function() {
+			// Random quote
+			const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+			quoteText.textContent = randomQuote;
+
+			// Random background color
+			const randomColor = colors[Math.floor(Math.random() * colors.length)];
+			body.style.backgroundColor = randomColor;
+		});
+	</script>
+</body>
+</html>

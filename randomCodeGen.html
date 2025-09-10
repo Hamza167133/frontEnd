@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Random Quote Generator</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: sans-serif;
+      background: linear-gradient(to left, #1e3c72, #2a5298); /* soft blue gradient */
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #quoteBox {
+      min-width: 400px;
+      background-color: white;
+      border-radius: 20px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+    h1 {
+      color: #1e3c72;
+      font-size: 26px;
+      margin-bottom: 15px;
+    }
+    #quoteText {
+      color: #555;
+      font-size: 18px;
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+    #newQuote {
+      background-color: #1e3c72;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      padding: 12px 25px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    #newQuote:hover {
+      background-color: #2a5298;
+    }
+  </style>
+</head>
+<body>
+  <div id="quoteBox">
+    <h1>Random Quote Generator</h1>
+    <p id="quoteText">Click the button to see a quote!</p>
+    <button id="newQuote">Show Random Quote</button>
+  </div>
+
+  <script>
+	let quotes = [
+    		"Life is what happens when you’re busy making other plans.",
+    		"Stay positive, work hard, make it happen.",
+    		"Happiness depends upon ourselves.",
+    		"Do one thing every day that scares you.",
+    		"Dream big and dare to fail."
+  	];
+
+  	let quoteText = document.getElementById("quoteText");
+  	let newQuoteBtn = document.getElementById("newQuote");
+
+	newQuoteBtn.addEventListener('click',function(){
+		let randomIndex = Math.floor(Math.random() * quotes.length);
+  		quoteText.innerText = quotes[randomIndex];
+	});
+
+  </script>
+</body>
+</html>
