@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Color & Text Playground</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box;}
+        body {
+            background-color: rgb(250, 250, 250);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+        #card {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 3rem;
+        }
+        #firstH {
+            margin-top: 20px;
+        }
+        h2 {
+            font-size: 1.6rem;
+        }
+        #btnGroup {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        button {
+            border: none;
+            background-color: #ebebeb;
+            border-radius: 10px;
+            padding: 12px 25px;
+            font-weight: bolder;
+            font-size: 1em;
+            color: black;
+            cursor: pointer;
+        }
+        .background-btn:nth-child(1) {
+            background-color: rgb(250, 91, 82);
+        }
+        .background-btn:nth-child(2) {
+            background-color: rgb(54, 131, 255);
+        }
+        .background-btn:nth-child(3) {
+            background-color: rgb(255, 221, 97);
+        }
+        .background-btn:nth-child(4) {
+            background-color: rgb(80, 212, 153);
+        }
+        .text-btn:nth-child(1) {
+            color: rgb(250, 91, 82);
+        }
+        .text-btn:nth-child(2) {
+            color: rgb(54, 131, 255);
+        }
+        .text-btn:nth-child(3) {
+            color: rgb(255, 221, 97);
+        }
+        .text-btn:nth-child(4) {
+            color: rgb(80, 212, 153);
+        }
+    </style>
+</head>
+<body>
+    <div id="card">
+        <h1>Color & Text Playground</h1>
+        <h2 id="firstH">Background color</h2>
+        <div id="btnGroup">
+            <button class="background-btn">Red</button>
+            <button class="background-btn">Blue</button>
+            <button class="background-btn">Yellow</button>
+            <button class="background-btn">Green</button>
+        </div>
+        <h2>Text color</h2>
+        <div id="btnGroup">
+            <button class="text-btn">Red</button>
+            <button class="text-btn">Blue</button>
+            <button class="text-btn">Yellow</button>
+            <button class="text-btn">Green</button>
+        </div>
+        <h2>Text size</h2>
+        <div id="btnGroup">
+            <button class="size-btn" onclick="document.getElementById('card').style.fontSize='12px'">12px</button>
+            <button class="size-btn" onclick="document.getElementById('card').style.fontSize='16px'">16px</button>
+        </div>
+    </div>
+
+    <script>
+        const buttons = document.querySelectorAll('button');
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const card = document.getElementById('card');
+                if (button.classList.contains('background-btn')) {
+                    card.style.backgroundColor = button.textContent.toLowerCase();
+                } else if (button.classList.contains('text-btn')) {
+                    card.style.color = button.textContent.toLowerCase();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
